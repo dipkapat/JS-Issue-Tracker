@@ -62,8 +62,10 @@ function setStatusClosed (id) {
       issues[i].status = "Closed";
     }
   }
-
-  function deleteIssue (id) {
+  localStorage.setItem('issues', JSON.stringify(issues));  
+  fetchIssues();
+}
+function deleteIssue (id) {
   var issues = JSON.parse(localStorage.getItem('issues'));
 
   for(var i = 0; i < issues.length; i++) {
@@ -72,8 +74,5 @@ function setStatusClosed (id) {
     }
   }
   localStorage.setItem('issues', JSON.stringify(issues));
-  fetchIssues();
-}
-  localStorage.setItem('issues', JSON.stringify(issues));  
   fetchIssues();
 }
